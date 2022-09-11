@@ -21,39 +21,17 @@ import java.io.IOException;
  */
 public class ESConnectTest01 {
 
-    /**
-    　* @description: TODO
-    　* @return: void
-    　* @params: []
-    　* @createTime:  2022/9/6 11:09
-    　* @author: 02雪乃赤瞳楪祈校条祭制作委员会 wyq_start
-      */
-    public void add() {
-        System.out.println(">>>");
-    }
+    public static RestHighLevelClient rHLC01 = new RestHighLevelClient(RestClient.builder(new
+            HttpHost("localhost",9200,"http")));
+
+
+
 
     @Test
     public void test02() throws IOException {
 
-        RestHighLevelClient rHC = new RestHighLevelClient(RestClient.builder(new HttpHost("localhost", 9200, "http")));
-//
-//        CreateIndexRequest user = new CreateIndexRequest("user");
-//
-//        CreateIndexResponse response = rHC.indices().create(user, RequestOptions.DEFAULT);
-//
-//        boolean acknowledged = response.isAcknowledged();
-//
-//        System.out.println(" >>> " + acknowledged);
 
-        GetIndexRequest user = new GetIndexRequest("user");
 
-        GetIndexResponse response = rHC.indices().get(user, RequestOptions.DEFAULT);
-
-        System.out.println("getAliases"+response.getAliases());
-
-        System.out.println("getMappings"+response.getMappings());
-
-        System.out.println("getSettings"+response.getSettings());
 
 
     }
@@ -62,17 +40,10 @@ public class ESConnectTest01 {
     @Test
     public void test01() throws IOException {
 
-        ESConnectTest01 esConnectTest01 = new ESConnectTest01();
+        RestHighLevelClient rHC01 = new RestHighLevelClient(RestClient.builder(new HttpHost("localhost"
+                , 9200, "http")));
+        rHC01.close();
 
-//        Runnable add = esConnectTest01::add;
-//
-//        add.run();
-
-        RestHighLevelClient localhost = new RestHighLevelClient(RestClient.builder(new HttpHost("localhost", 9200, "http")));
-
-        System.out.println(" >> " + localhost);
-
-        localhost.close();
 
     }
 
