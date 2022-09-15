@@ -44,9 +44,8 @@ public class ESConnectTest01 {
             HttpHost("localhost", 9200, "http")));
 
 
-    //    @Test
-//    public void test11() throws IOException {
-    public static void main(String[] args) throws IOException {
+    @Test
+    public void test11() throws IOException {
 
 
         Anime01 _anime01 = new Anime01("影宅", "2022", 8);
@@ -72,7 +71,7 @@ public class ESConnectTest01 {
 
         System.out.println(bulk.status());
 
-        System.out.println("getItems" + bulk.getItems());
+        System.out.println("getItems" + Arrays.toString(bulk.getItems()));
 
         System.out.println("getTook" + bulk.getTook());
 
