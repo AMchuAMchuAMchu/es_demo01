@@ -3,12 +3,21 @@ package com.atguigu.es_demo01;
 import com.atguigu.es_demo01.bean.Anime01;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import lombok.SneakyThrows;
 import org.apache.http.HttpHost;
 import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
+import org.elasticsearch.action.bulk.BulkRequest;
+import org.elasticsearch.action.bulk.BulkResponse;
+import org.elasticsearch.action.delete.DeleteRequest;
+import org.elasticsearch.action.delete.DeleteResponse;
+import org.elasticsearch.action.get.GetRequest;
+import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.action.support.master.AcknowledgedResponse;
+import org.elasticsearch.action.update.UpdateRequest;
+import org.elasticsearch.action.update.UpdateResponse;
 import org.elasticsearch.client.*;
 import org.elasticsearch.client.indices.CreateIndexRequest;
 import org.elasticsearch.client.indices.CreateIndexResponse;
@@ -18,6 +27,7 @@ import org.elasticsearch.common.xcontent.XContentType;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.UUID;
 
 /**
@@ -31,7 +41,112 @@ import java.util.UUID;
 public class ESConnectTest01 {
 
     public static RestHighLevelClient rHLC01 = new RestHighLevelClient(RestClient.builder(new
-            HttpHost("localhost",9200,"http")));
+            HttpHost("localhost", 9200, "http")));
+
+
+    //    @Test
+//    public void test11() throws IOException {
+    public static void main(String[] args) throws IOException {
+
+
+        Anime01 _anime01 = new Anime01("影宅", "2022", 8);
+        Anime01 _anime02 = new Anime01("食锈末世录", "2022", 4);
+        Anime01 _anime03 = new Anime01("lycores", "2022", 4);
+
+        Gson gson = new Gson();
+
+        String anime01 = gson.toJson(_anime01);
+        String anime02 = gson.toJson(_anime02);
+        String anime03 = gson.toJson(_anime03);
+
+
+        BulkRequest bulkRequest = new BulkRequest();
+
+        bulkRequest.add(new IndexRequest().index("a1").id("1001").source(XContentType.JSON, "name", anime01));
+
+        bulkRequest.add(new IndexRequest().index("a2").id("1002").source(XContentType.JSON, "name", anime02));
+
+        bulkRequest.add(new IndexRequest().index("a3").id("1003").source(XContentType.JSON, "name", anime03));
+
+        BulkResponse bulk = rHLC01.bulk(bulkRequest, RequestOptions.DEFAULT);
+
+        System.out.println(bulk.status());
+
+        System.out.println("getItems" + bulk.getItems());
+
+        System.out.println("getTook" + bulk.getTook());
+
+        rHLC01.close();
+
+
+    }
+
+
+    @Test
+    public void test10() throws IOException {
+
+        DeleteRequest deleteRequest = new DeleteRequest().index("anime01").id("1001");
+
+        DeleteResponse delete = rHLC01.delete(deleteRequest, RequestOptions.DEFAULT);
+
+        System.out.println(delete.status());
+
+    }
+
+    @Test
+    public void test09() throws IOException {
+
+        GetRequest getRequest = new GetRequest().index("anime01").id("1001");
+
+        GetResponse response = rHLC01.get(getRequest, RequestOptions.DEFAULT);
+
+        System.out.println(response.getIndex());
+
+        System.out.println(response.getId());
+
+
+        System.out.println(response.getSourceAsString());
+
+    }
+
+
+    @Test
+    public void test08() throws IOException {
+
+        GetIndexRequest anime01 = new GetIndexRequest("anime01");
+
+        GetIndexResponse response = rHLC01.indices().get(anime01, RequestOptions.DEFAULT);
+
+        System.out.println(response.getAliases().entrySet());
+
+        System.out.println(response.getMappings().entrySet());
+
+        System.out.println(response.getSettings().entrySet());
+
+
+    }
+
+
+    @Test
+    public void test07() throws IOException {
+
+        UpdateRequest ur = new UpdateRequest();
+
+        ur.index("anime01").id("1001");
+
+        ur.doc(XContentType.JSON, "time", 2020);
+
+        UpdateResponse response = rHLC01.update(ur, RequestOptions.DEFAULT);
+
+        System.out.println(response.status());
+
+        System.out.println(response.getIndex());
+
+        System.out.println(response.getId());
+
+        System.out.println(response.getResult());
+
+    }
 
 
     @Test
@@ -73,9 +188,8 @@ public class ESConnectTest01 {
     }
 
 
-
     @Test
-    public void test05(){
+    public void test05() {
 
 //        String s = UUID.randomUUID().toString();
 
@@ -83,7 +197,6 @@ public class ESConnectTest01 {
 
 
     }
-
 
 
     @Test
@@ -106,13 +219,12 @@ public class ESConnectTest01 {
 
         GetIndexResponse response = rHLC01.indices().get(user, RequestOptions.DEFAULT);
 
-        System.out.println(" >> "+response.getAliases());
-        System.out.println(" >> "+response.getMappings());
-        System.out.println(" >> "+response.getSettings());
+        System.out.println(" >> " + response.getAliases());
+        System.out.println(" >> " + response.getMappings());
+        System.out.println(" >> " + response.getSettings());
 
 
     }
-
 
 
     @Test
@@ -122,7 +234,7 @@ public class ESConnectTest01 {
 
         CreateIndexResponse response = rHLC01.indices().create(anime01, RequestOptions.DEFAULT);
 
-        System.out.println(" >> "+response.isAcknowledged());
+        System.out.println(" >> " + response.isAcknowledged());
 
     }
 
@@ -133,9 +245,5 @@ public class ESConnectTest01 {
         RestHighLevelClient rHC01 = new RestHighLevelClient(RestClient.builder(new HttpHost("localhost"
                 , 9200, "http")));
         rHC01.close();
-
-
     }
-
-
 }
