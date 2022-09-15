@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 import lombok.SneakyThrows;
 import org.apache.http.HttpHost;
 import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
+import org.elasticsearch.action.bulk.BulkItemResponse;
 import org.elasticsearch.action.bulk.BulkRequest;
 import org.elasticsearch.action.bulk.BulkResponse;
 import org.elasticsearch.action.delete.DeleteRequest;
@@ -15,6 +16,9 @@ import org.elasticsearch.action.get.GetRequest;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.action.index.IndexResponse;
+import org.elasticsearch.action.search.SearchRequest;
+import org.elasticsearch.action.search.SearchResponse;
+import org.elasticsearch.action.search.ShardSearchFailure;
 import org.elasticsearch.action.support.master.AcknowledgedResponse;
 import org.elasticsearch.action.update.UpdateRequest;
 import org.elasticsearch.action.update.UpdateResponse;
@@ -24,10 +28,15 @@ import org.elasticsearch.client.indices.CreateIndexResponse;
 import org.elasticsearch.client.indices.GetIndexRequest;
 import org.elasticsearch.client.indices.GetIndexResponse;
 import org.elasticsearch.common.xcontent.XContentType;
+import org.elasticsearch.index.query.QueryBuilder;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.search.SearchHits;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.junit.Test;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.UUID;
 
 /**
@@ -45,35 +54,102 @@ public class ESConnectTest01 {
 
 
     @Test
-    public void test11() throws IOException {
+    public void test14() throws IOException {
+
+        SearchRequest searchRequest = new SearchRequest();
+
+        searchRequest.indices("anime");
+
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+
+        searchSourceBuilder.query(QueryBuilders.termQuery("time","2022"));
+
+        searchRequest.source(searchSourceBuilder);
+
+        SearchResponse search = rHLC01.search(searchRequest, RequestOptions.DEFAULT);
+
+        SearchHits hits = search.getHits();
+
+        hits.forEach(System.out::println);
 
 
-        Anime01 _anime01 = new Anime01("影宅", "2022", 8);
-        Anime01 _anime02 = new Anime01("食锈末世录", "2022", 4);
-        Anime01 _anime03 = new Anime01("lycores", "2022", 4);
+    }
 
-        Gson gson = new Gson();
+    @Test
+    public void test13() throws IOException {
 
-        String anime01 = gson.toJson(_anime01);
-        String anime02 = gson.toJson(_anime02);
-        String anime03 = gson.toJson(_anime03);
+        SearchRequest searchRequest = new SearchRequest();
 
+        searchRequest.indices("anime");
+
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+
+        searchSourceBuilder.query(QueryBuilders.matchAllQuery());
+
+        searchRequest.source(searchSourceBuilder);
+
+        SearchResponse search = rHLC01.search(searchRequest, RequestOptions.DEFAULT);
+
+        SearchHits hits = search.getHits();
+
+        hits.forEach(System.out::println);
+
+
+
+
+
+
+    }
+
+
+
+    @Test
+    public void test12() throws IOException {
 
         BulkRequest bulkRequest = new BulkRequest();
 
-        bulkRequest.add(new IndexRequest().index("a1").id("1001").source(XContentType.JSON, "name", anime01));
-
-        bulkRequest.add(new IndexRequest().index("a2").id("1002").source(XContentType.JSON, "name", anime02));
-
-        bulkRequest.add(new IndexRequest().index("a3").id("1003").source(XContentType.JSON, "name", anime03));
+        bulkRequest.add(new DeleteRequest().index("anime").id("1001"));
+        bulkRequest.add(new DeleteRequest().index("anime").id("1002"));
+        bulkRequest.add(new DeleteRequest().index("anime").id("1003"));
 
         BulkResponse bulk = rHLC01.bulk(bulkRequest, RequestOptions.DEFAULT);
 
         System.out.println(bulk.status());
 
-        System.out.println("getItems" + Arrays.toString(bulk.getItems()));
+        System.out.println(bulk.getTook());
+
+    }
+
+
+    @Test
+    public void test11() throws IOException {
+
+
+        Anime01 _anime01 = new Anime01("影宅", "2020", 8);
+        Anime01 _anime02 = new Anime01("食锈末世录", "2022", 4);
+        Anime01 _anime03 = new Anime01("lycores", "2022", 4);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        String anime01 = objectMapper.writeValueAsString(_anime01);
+        String anime02 = objectMapper.writeValueAsString(_anime01);
+        String anime03 = objectMapper.writeValueAsString(_anime01);
+
+        BulkRequest bulkRequest = new BulkRequest();
+
+        bulkRequest.add(new IndexRequest().index("anime").id("1001").source(XContentType.JSON, "name", anime01));
+
+        bulkRequest.add(new IndexRequest().index("anime").id("1002").source(XContentType.JSON, "name", anime02));
+
+        bulkRequest.add(new IndexRequest().index("anime").id("1003").source(XContentType.JSON, "name", anime03));
+
+        BulkResponse bulk = rHLC01.bulk(bulkRequest, RequestOptions.DEFAULT);
+
+        System.out.println(bulk.status());
 
         System.out.println("getTook" + bulk.getTook());
+
+        BulkRequest bulkRequest1 = new BulkRequest();
 
         rHLC01.close();
 
@@ -95,7 +171,8 @@ public class ESConnectTest01 {
     @Test
     public void test09() throws IOException {
 
-        GetRequest getRequest = new GetRequest().index("anime01").id("1001");
+//        GetRequest getRequest = new GetRequest().index("anime01").id("1001");
+        GetRequest getRequest = new GetRequest().index("a1").id("1001");
 
         GetResponse response = rHLC01.get(getRequest, RequestOptions.DEFAULT);
 

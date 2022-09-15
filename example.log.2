@@ -1,0 +1,743 @@
+DEBUG main org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] start execution
+DEBUG main org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: default
+DEBUG main org.apache.http.client.protocol.RequestAuthCache - Re-using cached 'basic' auth scheme for http://localhost:9200
+DEBUG main org.apache.http.client.protocol.RequestAuthCache - No credentials for preemptive authentication
+DEBUG main org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Request connection for {}->http://localhost:9200
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection request: [route: {}->http://localhost:9200][total kept alive: 0; route allocated: 0 of 10; total allocated: 0 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection leased: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 10; total allocated: 0 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Connection allocated: CPoolProxy{http-outgoing-0 [ACTIVE]}
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60842<->127.0.0.1:9200[ACTIVE][r:]: Set attribute http.nio.exchange-handler
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60842<->127.0.0.1:9200[ACTIVE][rw:]: Event set [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60842<->127.0.0.1:9200[ACTIVE][rw:]: Set timeout 0
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE]: Connected
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60842<->127.0.0.1:9200[ACTIVE][rw:]: Set attribute http.nio.http-exchange-state
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Start connection routing
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] route completed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Connection route established
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Attempt 1 to execute request
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Target auth state: UNCHALLENGED
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Proxy auth state: UNCHALLENGED
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60842<->127.0.0.1:9200[ACTIVE][rw:]: Set timeout 30000
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> POST /_bulk?timeout=1m HTTP/1.1
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Content-Length: 346
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Content-Type: application/json
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Host: localhost:9200
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Connection: Keep-Alive
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> User-Agent: Apache-HttpAsyncClient/4.1.4 (Java/1.8.0_311)
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60842<->127.0.0.1:9200[ACTIVE][rw:]: Event set [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] Output ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] produce content
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Request completed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] [content length: 346; pos: 346; completed: true]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60842<->127.0.0.1:9200[ACTIVE][rw:w]: 539 bytes written
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "POST /_bulk?timeout=1m HTTP/1.1[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Content-Length: 346[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Content-Type: application/json[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Host: localhost:9200[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "User-Agent: Apache-HttpAsyncClient/4.1.4 (Java/1.8.0_311)[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"index":{"_index":"a1","_id":"1001"}}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"name":"{\"animeName\":\"[0xffffffe5][0xffffffbd][0xffffffb1][0xffffffe5][0xffffffae][0xffffff85]\",\"time\":\"2022\",\"characters\":8}"}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"index":{"_index":"a2","_id":"1002"}}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"name":"{\"animeName\":\"[0xffffffe9][0xffffffa3][0xffffff9f][0xffffffe9][0xffffff94][0xffffff88][0xffffffe6][0xffffff9c][0xffffffab][0xffffffe4][0xffffffb8][0xffffff96][0xffffffe5][0xffffffbd][0xffffff95]\",\"time\":\"2022\",\"characters\":4}"}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"index":{"_index":"a3","_id":"1003"}}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"name":"{\"animeName\":\"lycores\",\"time\":\"2022\",\"characters\":4}"}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] Request ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60842<->127.0.0.1:9200[ACTIVE][r:w]: Event cleared [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60842<->127.0.0.1:9200[ACTIVE][r:r]: 659 bytes read
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "HTTP/1.1 200 OK[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "content-type: application/json; charset=UTF-8[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "content-length: 572[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "{"took":6,"errors":false,"items":[{"index":{"_index":"a1","_type":"_doc","_id":"1001","_version":17,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":16,"_primary_term":1,"status":200}},{"index":{"_index":"a2","_type":"_doc","_id":"1002","_version":17,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":16,"_primary_term":1,"status":200}},{"index":{"_index":"a3","_type":"_doc","_id":"1003","_version":17,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":16,"_primary_term":1,"status":200}}]}"
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << HTTP/1.1 200 OK
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << content-type: application/json; charset=UTF-8
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << content-length: 572
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE(572)] Response received
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Response received HTTP/1.1 200 OK
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE(572)] Input ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Consume content
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Connection can be kept alive indefinitely
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Response processed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] releasing connection
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60842<->127.0.0.1:9200[ACTIVE][r:r]: Remove attribute http.nio.exchange-handler
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Releasing connection: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 10; total allocated: 1 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection [id: http-outgoing-0][route: {}->http://localhost:9200] can be kept alive indefinitely
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60842<->127.0.0.1:9200[ACTIVE][r:r]: Set timeout 0
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection released: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 1; route allocated: 1 of 10; total allocated: 1 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] [content length: 572; pos: 572; completed: true]
+DEBUG main org.elasticsearch.client.RestClient - request [POST http://localhost:9200/_bulk?timeout=1m] returned [HTTP/1.1 200 OK]
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection manager is shutting down
+DEBUG main org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60842<->127.0.0.1:9200[ACTIVE][r:r]: Close
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [CLOSED]: Disconnected
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection manager shut down
+DEBUG main org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] start execution
+DEBUG main org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: default
+DEBUG main org.apache.http.client.protocol.RequestAuthCache - Re-using cached 'basic' auth scheme for http://localhost:9200
+DEBUG main org.apache.http.client.protocol.RequestAuthCache - No credentials for preemptive authentication
+DEBUG main org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Request connection for {}->http://localhost:9200
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection request: [route: {}->http://localhost:9200][total kept alive: 0; route allocated: 0 of 10; total allocated: 0 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection leased: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 10; total allocated: 0 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Connection allocated: CPoolProxy{http-outgoing-0 [ACTIVE]}
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60904<->127.0.0.1:9200[ACTIVE][r:]: Set attribute http.nio.exchange-handler
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60904<->127.0.0.1:9200[ACTIVE][rw:]: Event set [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60904<->127.0.0.1:9200[ACTIVE][rw:]: Set timeout 0
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE]: Connected
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60904<->127.0.0.1:9200[ACTIVE][rw:]: Set attribute http.nio.http-exchange-state
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Start connection routing
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] route completed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Connection route established
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Attempt 1 to execute request
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Target auth state: UNCHALLENGED
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Proxy auth state: UNCHALLENGED
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60904<->127.0.0.1:9200[ACTIVE][rw:]: Set timeout 30000
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> POST /_bulk?timeout=1m HTTP/1.1
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Content-Length: 346
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Content-Type: application/json
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Host: localhost:9200
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Connection: Keep-Alive
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> User-Agent: Apache-HttpAsyncClient/4.1.4 (Java/1.8.0_311)
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60904<->127.0.0.1:9200[ACTIVE][rw:]: Event set [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] Output ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] produce content
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Request completed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] [content length: 346; pos: 346; completed: true]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60904<->127.0.0.1:9200[ACTIVE][rw:w]: 539 bytes written
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "POST /_bulk?timeout=1m HTTP/1.1[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Content-Length: 346[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Content-Type: application/json[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Host: localhost:9200[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "User-Agent: Apache-HttpAsyncClient/4.1.4 (Java/1.8.0_311)[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"index":{"_index":"a1","_id":"1001"}}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"name":"{\"animeName\":\"[0xffffffe5][0xffffffbd][0xffffffb1][0xffffffe5][0xffffffae][0xffffff85]\",\"time\":\"2022\",\"characters\":8}"}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"index":{"_index":"a2","_id":"1002"}}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"name":"{\"animeName\":\"[0xffffffe9][0xffffffa3][0xffffff9f][0xffffffe9][0xffffff94][0xffffff88][0xffffffe6][0xffffff9c][0xffffffab][0xffffffe4][0xffffffb8][0xffffff96][0xffffffe5][0xffffffbd][0xffffff95]\",\"time\":\"2022\",\"characters\":4}"}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"index":{"_index":"a3","_id":"1003"}}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"name":"{\"animeName\":\"lycores\",\"time\":\"2022\",\"characters\":4}"}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] Request ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60904<->127.0.0.1:9200[ACTIVE][r:w]: Event cleared [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60904<->127.0.0.1:9200[ACTIVE][r:r]: 659 bytes read
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "HTTP/1.1 200 OK[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "content-type: application/json; charset=UTF-8[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "content-length: 572[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "{"took":6,"errors":false,"items":[{"index":{"_index":"a1","_type":"_doc","_id":"1001","_version":18,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":17,"_primary_term":1,"status":200}},{"index":{"_index":"a2","_type":"_doc","_id":"1002","_version":18,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":17,"_primary_term":1,"status":200}},{"index":{"_index":"a3","_type":"_doc","_id":"1003","_version":18,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":17,"_primary_term":1,"status":200}}]}"
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << HTTP/1.1 200 OK
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << content-type: application/json; charset=UTF-8
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << content-length: 572
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE(572)] Response received
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Response received HTTP/1.1 200 OK
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE(572)] Input ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Consume content
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Connection can be kept alive indefinitely
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Response processed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] releasing connection
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60904<->127.0.0.1:9200[ACTIVE][r:r]: Remove attribute http.nio.exchange-handler
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Releasing connection: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 10; total allocated: 1 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection [id: http-outgoing-0][route: {}->http://localhost:9200] can be kept alive indefinitely
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60904<->127.0.0.1:9200[ACTIVE][r:r]: Set timeout 0
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection released: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 1; route allocated: 1 of 10; total allocated: 1 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] [content length: 572; pos: 572; completed: true]
+DEBUG main org.elasticsearch.client.RestClient - request [POST http://localhost:9200/_bulk?timeout=1m] returned [HTTP/1.1 200 OK]
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection manager is shutting down
+DEBUG main org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:60904<->127.0.0.1:9200[ACTIVE][r:r]: Close
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [CLOSED]: Disconnected
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection manager shut down
+DEBUG main org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] start execution
+DEBUG main org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: default
+DEBUG main org.apache.http.client.protocol.RequestAuthCache - Re-using cached 'basic' auth scheme for http://localhost:9200
+DEBUG main org.apache.http.client.protocol.RequestAuthCache - No credentials for preemptive authentication
+DEBUG main org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Request connection for {}->http://localhost:9200
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection request: [route: {}->http://localhost:9200][total kept alive: 0; route allocated: 0 of 10; total allocated: 0 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection leased: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 10; total allocated: 0 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Connection allocated: CPoolProxy{http-outgoing-0 [ACTIVE]}
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61761<->127.0.0.1:9200[ACTIVE][r:]: Set attribute http.nio.exchange-handler
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61761<->127.0.0.1:9200[ACTIVE][rw:]: Event set [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61761<->127.0.0.1:9200[ACTIVE][rw:]: Set timeout 0
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE]: Connected
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61761<->127.0.0.1:9200[ACTIVE][rw:]: Set attribute http.nio.http-exchange-state
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Start connection routing
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] route completed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Connection route established
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Attempt 1 to execute request
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Target auth state: UNCHALLENGED
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Proxy auth state: UNCHALLENGED
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61761<->127.0.0.1:9200[ACTIVE][rw:]: Set timeout 30000
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> POST /_bulk?timeout=1m HTTP/1.1
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Content-Length: 346
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Content-Type: application/json
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Host: localhost:9200
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Connection: Keep-Alive
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> User-Agent: Apache-HttpAsyncClient/4.1.4 (Java/1.8.0_311)
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61761<->127.0.0.1:9200[ACTIVE][rw:]: Event set [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] Output ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] produce content
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Request completed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] [content length: 346; pos: 346; completed: true]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61761<->127.0.0.1:9200[ACTIVE][rw:w]: 539 bytes written
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "POST /_bulk?timeout=1m HTTP/1.1[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Content-Length: 346[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Content-Type: application/json[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Host: localhost:9200[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "User-Agent: Apache-HttpAsyncClient/4.1.4 (Java/1.8.0_311)[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"index":{"_index":"a1","_id":"1001"}}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"name":"{\"animeName\":\"[0xffffffe5][0xffffffbd][0xffffffb1][0xffffffe5][0xffffffae][0xffffff85]\",\"time\":\"2022\",\"characters\":8}"}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"index":{"_index":"a2","_id":"1002"}}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"name":"{\"animeName\":\"[0xffffffe9][0xffffffa3][0xffffff9f][0xffffffe9][0xffffff94][0xffffff88][0xffffffe6][0xffffff9c][0xffffffab][0xffffffe4][0xffffffb8][0xffffff96][0xffffffe5][0xffffffbd][0xffffff95]\",\"time\":\"2022\",\"characters\":4}"}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"index":{"_index":"a3","_id":"1003"}}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"name":"{\"animeName\":\"lycores\",\"time\":\"2022\",\"characters\":4}"}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] Request ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61761<->127.0.0.1:9200[ACTIVE][r:w]: Event cleared [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61761<->127.0.0.1:9200[ACTIVE][r:r]: 659 bytes read
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "HTTP/1.1 200 OK[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "content-type: application/json; charset=UTF-8[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "content-length: 572[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "{"took":6,"errors":false,"items":[{"index":{"_index":"a1","_type":"_doc","_id":"1001","_version":28,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":27,"_primary_term":1,"status":200}},{"index":{"_index":"a2","_type":"_doc","_id":"1002","_version":28,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":27,"_primary_term":1,"status":200}},{"index":{"_index":"a3","_type":"_doc","_id":"1003","_version":28,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":27,"_primary_term":1,"status":200}}]}"
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << HTTP/1.1 200 OK
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << content-type: application/json; charset=UTF-8
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << content-length: 572
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE(572)] Response received
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Response received HTTP/1.1 200 OK
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE(572)] Input ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Consume content
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Connection can be kept alive indefinitely
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Response processed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] releasing connection
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61761<->127.0.0.1:9200[ACTIVE][r:r]: Remove attribute http.nio.exchange-handler
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Releasing connection: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 10; total allocated: 1 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection [id: http-outgoing-0][route: {}->http://localhost:9200] can be kept alive indefinitely
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61761<->127.0.0.1:9200[ACTIVE][r:r]: Set timeout 0
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection released: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 1; route allocated: 1 of 10; total allocated: 1 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] [content length: 572; pos: 572; completed: true]
+DEBUG main org.elasticsearch.client.RestClient - request [POST http://localhost:9200/_bulk?timeout=1m] returned [HTTP/1.1 200 OK]
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection manager is shutting down
+DEBUG main org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61761<->127.0.0.1:9200[ACTIVE][r:r]: Close
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [CLOSED]: Disconnected
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection manager shut down
+DEBUG main org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] start execution
+DEBUG main org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: default
+DEBUG main org.apache.http.client.protocol.RequestAuthCache - Re-using cached 'basic' auth scheme for http://localhost:9200
+DEBUG main org.apache.http.client.protocol.RequestAuthCache - No credentials for preemptive authentication
+DEBUG main org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Request connection for {}->http://localhost:9200
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection request: [route: {}->http://localhost:9200][total kept alive: 0; route allocated: 0 of 10; total allocated: 0 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection leased: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 10; total allocated: 0 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Connection allocated: CPoolProxy{http-outgoing-0 [ACTIVE]}
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61804<->127.0.0.1:9200[ACTIVE][r:]: Set attribute http.nio.exchange-handler
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61804<->127.0.0.1:9200[ACTIVE][rw:]: Event set [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61804<->127.0.0.1:9200[ACTIVE][rw:]: Set timeout 0
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE]: Connected
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61804<->127.0.0.1:9200[ACTIVE][rw:]: Set attribute http.nio.http-exchange-state
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Start connection routing
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] route completed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Connection route established
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Attempt 1 to execute request
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Target auth state: UNCHALLENGED
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Proxy auth state: UNCHALLENGED
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61804<->127.0.0.1:9200[ACTIVE][rw:]: Set timeout 30000
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> POST /_bulk?timeout=1m HTTP/1.1
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Content-Length: 346
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Content-Type: application/json
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Host: localhost:9200
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Connection: Keep-Alive
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> User-Agent: Apache-HttpAsyncClient/4.1.4 (Java/1.8.0_311)
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61804<->127.0.0.1:9200[ACTIVE][rw:]: Event set [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] Output ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] produce content
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Request completed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] [content length: 346; pos: 346; completed: true]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61804<->127.0.0.1:9200[ACTIVE][rw:w]: 539 bytes written
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "POST /_bulk?timeout=1m HTTP/1.1[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Content-Length: 346[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Content-Type: application/json[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Host: localhost:9200[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "User-Agent: Apache-HttpAsyncClient/4.1.4 (Java/1.8.0_311)[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"index":{"_index":"a1","_id":"1001"}}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"name":"{\"animeName\":\"[0xffffffe5][0xffffffbd][0xffffffb1][0xffffffe5][0xffffffae][0xffffff85]\",\"time\":\"2022\",\"characters\":8}"}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"index":{"_index":"a2","_id":"1002"}}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"name":"{\"animeName\":\"[0xffffffe9][0xffffffa3][0xffffff9f][0xffffffe9][0xffffff94][0xffffff88][0xffffffe6][0xffffff9c][0xffffffab][0xffffffe4][0xffffffb8][0xffffff96][0xffffffe5][0xffffffbd][0xffffff95]\",\"time\":\"2022\",\"characters\":4}"}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"index":{"_index":"a3","_id":"1003"}}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"name":"{\"animeName\":\"lycores\",\"time\":\"2022\",\"characters\":4}"}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] Request ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61804<->127.0.0.1:9200[ACTIVE][r:w]: Event cleared [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61804<->127.0.0.1:9200[ACTIVE][r:r]: 660 bytes read
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "HTTP/1.1 200 OK[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "content-type: application/json; charset=UTF-8[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "content-length: 573[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "{"took":10,"errors":false,"items":[{"index":{"_index":"a1","_type":"_doc","_id":"1001","_version":29,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":28,"_primary_term":1,"status":200}},{"index":{"_index":"a2","_type":"_doc","_id":"1002","_version":29,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":28,"_primary_term":1,"status":200}},{"index":{"_index":"a3","_type":"_doc","_id":"1003","_version":29,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":28,"_primary_term":1,"status":200}}]}"
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << HTTP/1.1 200 OK
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << content-type: application/json; charset=UTF-8
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << content-length: 573
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE(573)] Response received
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Response received HTTP/1.1 200 OK
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE(573)] Input ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Consume content
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Connection can be kept alive indefinitely
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Response processed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] releasing connection
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61804<->127.0.0.1:9200[ACTIVE][r:r]: Remove attribute http.nio.exchange-handler
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Releasing connection: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 10; total allocated: 1 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection [id: http-outgoing-0][route: {}->http://localhost:9200] can be kept alive indefinitely
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61804<->127.0.0.1:9200[ACTIVE][r:r]: Set timeout 0
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection released: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 1; route allocated: 1 of 10; total allocated: 1 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] [content length: 573; pos: 573; completed: true]
+DEBUG main org.elasticsearch.client.RestClient - request [POST http://localhost:9200/_bulk?timeout=1m] returned [HTTP/1.1 200 OK]
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection manager is shutting down
+DEBUG main org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61804<->127.0.0.1:9200[ACTIVE][r:r]: Close
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [CLOSED]: Disconnected
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection manager shut down
+DEBUG main org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] start execution
+DEBUG main org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: default
+DEBUG main org.apache.http.client.protocol.RequestAuthCache - Re-using cached 'basic' auth scheme for http://localhost:9200
+DEBUG main org.apache.http.client.protocol.RequestAuthCache - No credentials for preemptive authentication
+DEBUG main org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Request connection for {}->http://localhost:9200
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection request: [route: {}->http://localhost:9200][total kept alive: 0; route allocated: 0 of 10; total allocated: 0 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection leased: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 10; total allocated: 0 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Connection allocated: CPoolProxy{http-outgoing-0 [ACTIVE]}
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61840<->127.0.0.1:9200[ACTIVE][r:]: Set attribute http.nio.exchange-handler
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61840<->127.0.0.1:9200[ACTIVE][rw:]: Event set [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61840<->127.0.0.1:9200[ACTIVE][rw:]: Set timeout 0
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE]: Connected
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61840<->127.0.0.1:9200[ACTIVE][rw:]: Set attribute http.nio.http-exchange-state
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Start connection routing
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] route completed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Connection route established
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Attempt 1 to execute request
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Target auth state: UNCHALLENGED
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Proxy auth state: UNCHALLENGED
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61840<->127.0.0.1:9200[ACTIVE][rw:]: Set timeout 30000
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> POST /_bulk?timeout=1m HTTP/1.1
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Content-Length: 346
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Content-Type: application/json
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Host: localhost:9200
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Connection: Keep-Alive
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> User-Agent: Apache-HttpAsyncClient/4.1.4 (Java/1.8.0_311)
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61840<->127.0.0.1:9200[ACTIVE][rw:]: Event set [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] Output ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] produce content
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Request completed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] [content length: 346; pos: 346; completed: true]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61840<->127.0.0.1:9200[ACTIVE][rw:w]: 539 bytes written
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "POST /_bulk?timeout=1m HTTP/1.1[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Content-Length: 346[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Content-Type: application/json[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Host: localhost:9200[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "User-Agent: Apache-HttpAsyncClient/4.1.4 (Java/1.8.0_311)[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"index":{"_index":"a1","_id":"1001"}}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"name":"{\"animeName\":\"[0xffffffe5][0xffffffbd][0xffffffb1][0xffffffe5][0xffffffae][0xffffff85]\",\"time\":\"2022\",\"characters\":8}"}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"index":{"_index":"a2","_id":"1002"}}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"name":"{\"animeName\":\"[0xffffffe9][0xffffffa3][0xffffff9f][0xffffffe9][0xffffff94][0xffffff88][0xffffffe6][0xffffff9c][0xffffffab][0xffffffe4][0xffffffb8][0xffffff96][0xffffffe5][0xffffffbd][0xffffff95]\",\"time\":\"2022\",\"characters\":4}"}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"index":{"_index":"a3","_id":"1003"}}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"name":"{\"animeName\":\"lycores\",\"time\":\"2022\",\"characters\":4}"}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] Request ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61840<->127.0.0.1:9200[ACTIVE][r:w]: Event cleared [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61840<->127.0.0.1:9200[ACTIVE][r:r]: 659 bytes read
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "HTTP/1.1 200 OK[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "content-type: application/json; charset=UTF-8[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "content-length: 572[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "{"took":8,"errors":false,"items":[{"index":{"_index":"a1","_type":"_doc","_id":"1001","_version":30,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":29,"_primary_term":1,"status":200}},{"index":{"_index":"a2","_type":"_doc","_id":"1002","_version":30,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":29,"_primary_term":1,"status":200}},{"index":{"_index":"a3","_type":"_doc","_id":"1003","_version":30,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":29,"_primary_term":1,"status":200}}]}"
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << HTTP/1.1 200 OK
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << content-type: application/json; charset=UTF-8
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << content-length: 572
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE(572)] Response received
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Response received HTTP/1.1 200 OK
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE(572)] Input ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Consume content
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Connection can be kept alive indefinitely
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Response processed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] releasing connection
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61840<->127.0.0.1:9200[ACTIVE][r:r]: Remove attribute http.nio.exchange-handler
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Releasing connection: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 10; total allocated: 1 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection [id: http-outgoing-0][route: {}->http://localhost:9200] can be kept alive indefinitely
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61840<->127.0.0.1:9200[ACTIVE][r:r]: Set timeout 0
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection released: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 1; route allocated: 1 of 10; total allocated: 1 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] [content length: 572; pos: 572; completed: true]
+DEBUG main org.elasticsearch.client.RestClient - request [POST http://localhost:9200/_bulk?timeout=1m] returned [HTTP/1.1 200 OK]
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection manager is shutting down
+DEBUG main org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61840<->127.0.0.1:9200[ACTIVE][r:r]: Close
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [CLOSED]: Disconnected
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection manager shut down
+DEBUG main org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] start execution
+DEBUG main org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: default
+DEBUG main org.apache.http.client.protocol.RequestAuthCache - Re-using cached 'basic' auth scheme for http://localhost:9200
+DEBUG main org.apache.http.client.protocol.RequestAuthCache - No credentials for preemptive authentication
+DEBUG main org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Request connection for {}->http://localhost:9200
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection request: [route: {}->http://localhost:9200][total kept alive: 0; route allocated: 0 of 10; total allocated: 0 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection leased: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 10; total allocated: 0 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Connection allocated: CPoolProxy{http-outgoing-0 [ACTIVE]}
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61910<->127.0.0.1:9200[ACTIVE][r:]: Set attribute http.nio.exchange-handler
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61910<->127.0.0.1:9200[ACTIVE][rw:]: Event set [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61910<->127.0.0.1:9200[ACTIVE][rw:]: Set timeout 0
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE]: Connected
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61910<->127.0.0.1:9200[ACTIVE][rw:]: Set attribute http.nio.http-exchange-state
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Start connection routing
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] route completed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Connection route established
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Attempt 1 to execute request
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Target auth state: UNCHALLENGED
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Proxy auth state: UNCHALLENGED
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61910<->127.0.0.1:9200[ACTIVE][rw:]: Set timeout 30000
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> GET /anime01/_doc/1001 HTTP/1.1
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Content-Length: 0
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Host: localhost:9200
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Connection: Keep-Alive
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> User-Agent: Apache-HttpAsyncClient/4.1.4 (Java/1.8.0_311)
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61910<->127.0.0.1:9200[ACTIVE][rw:]: Event set [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Request completed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61910<->127.0.0.1:9200[ACTIVE][rw:w]: 159 bytes written
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "GET /anime01/_doc/1001 HTTP/1.1[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Content-Length: 0[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Host: localhost:9200[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "User-Agent: Apache-HttpAsyncClient/4.1.4 (Java/1.8.0_311)[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] Request ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61910<->127.0.0.1:9200[ACTIVE][r:w]: Event cleared [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61910<->127.0.0.1:9200[ACTIVE][r:r]: 155 bytes read
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "HTTP/1.1 404 Not Found[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "content-type: application/json; charset=UTF-8[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "content-length: 62[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "{"_index":"anime01","_type":"_doc","_id":"1001","found":false}"
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << HTTP/1.1 404 Not Found
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << content-type: application/json; charset=UTF-8
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << content-length: 62
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE(62)] Response received
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Response received HTTP/1.1 404 Not Found
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE(62)] Input ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Consume content
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Connection can be kept alive indefinitely
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Response processed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] releasing connection
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61910<->127.0.0.1:9200[ACTIVE][r:r]: Remove attribute http.nio.exchange-handler
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Releasing connection: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 10; total allocated: 1 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection [id: http-outgoing-0][route: {}->http://localhost:9200] can be kept alive indefinitely
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61910<->127.0.0.1:9200[ACTIVE][r:r]: Set timeout 0
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection released: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 1; route allocated: 1 of 10; total allocated: 1 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] [content length: 62; pos: 62; completed: true]
+DEBUG main org.elasticsearch.client.RestClient - request [GET http://localhost:9200/anime01/_doc/1001] returned [HTTP/1.1 404 Not Found]
+DEBUG main org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] start execution
+DEBUG main org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: default
+DEBUG main org.apache.http.client.protocol.RequestAuthCache - Re-using cached 'basic' auth scheme for http://localhost:9200
+DEBUG main org.apache.http.client.protocol.RequestAuthCache - No credentials for preemptive authentication
+DEBUG main org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Request connection for {}->http://localhost:9200
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection request: [route: {}->http://localhost:9200][total kept alive: 0; route allocated: 0 of 10; total allocated: 0 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection leased: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 10; total allocated: 0 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Connection allocated: CPoolProxy{http-outgoing-0 [ACTIVE]}
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61947<->127.0.0.1:9200[ACTIVE][r:]: Set attribute http.nio.exchange-handler
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61947<->127.0.0.1:9200[ACTIVE][rw:]: Event set [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61947<->127.0.0.1:9200[ACTIVE][rw:]: Set timeout 0
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE]: Connected
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61947<->127.0.0.1:9200[ACTIVE][rw:]: Set attribute http.nio.http-exchange-state
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Start connection routing
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] route completed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Connection route established
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Attempt 1 to execute request
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Target auth state: UNCHALLENGED
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Proxy auth state: UNCHALLENGED
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61947<->127.0.0.1:9200[ACTIVE][rw:]: Set timeout 30000
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> GET /a1/_doc/1001 HTTP/1.1
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Content-Length: 0
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Host: localhost:9200
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Connection: Keep-Alive
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> User-Agent: Apache-HttpAsyncClient/4.1.4 (Java/1.8.0_311)
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61947<->127.0.0.1:9200[ACTIVE][rw:]: Event set [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Request completed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61947<->127.0.0.1:9200[ACTIVE][rw:w]: 154 bytes written
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "GET /a1/_doc/1001 HTTP/1.1[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Content-Length: 0[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Host: localhost:9200[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "User-Agent: Apache-HttpAsyncClient/4.1.4 (Java/1.8.0_311)[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] Request ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61947<->127.0.0.1:9200[ACTIVE][r:w]: Event cleared [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61947<->127.0.0.1:9200[ACTIVE][r:r]: 271 bytes read
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "HTTP/1.1 200 OK[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "content-type: application/json; charset=UTF-8[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "content-length: 184[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "{"_index":"a1","_type":"_doc","_id":"1001","_version":30,"_seq_no":29,"_primary_term":1,"found":true,"_source":{"name":"{\"animeName\":\"[0xffffffe5][0xffffffbd][0xffffffb1][0xffffffe5][0xffffffae][0xffffff85]\",\"time\":\"2022\",\"characters\":8}"}}"
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << HTTP/1.1 200 OK
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << content-type: application/json; charset=UTF-8
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << content-length: 184
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE(184)] Response received
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Response received HTTP/1.1 200 OK
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE(184)] Input ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Consume content
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Connection can be kept alive indefinitely
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Response processed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] releasing connection
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61947<->127.0.0.1:9200[ACTIVE][r:r]: Remove attribute http.nio.exchange-handler
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Releasing connection: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 10; total allocated: 1 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection [id: http-outgoing-0][route: {}->http://localhost:9200] can be kept alive indefinitely
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:61947<->127.0.0.1:9200[ACTIVE][r:r]: Set timeout 0
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection released: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 1; route allocated: 1 of 10; total allocated: 1 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] [content length: 184; pos: 184; completed: true]
+DEBUG main org.elasticsearch.client.RestClient - request [GET http://localhost:9200/a1/_doc/1001] returned [HTTP/1.1 200 OK]
+DEBUG main org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] start execution
+DEBUG main org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: default
+DEBUG main org.apache.http.client.protocol.RequestAuthCache - Re-using cached 'basic' auth scheme for http://localhost:9200
+DEBUG main org.apache.http.client.protocol.RequestAuthCache - No credentials for preemptive authentication
+DEBUG main org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Request connection for {}->http://localhost:9200
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection request: [route: {}->http://localhost:9200][total kept alive: 0; route allocated: 0 of 10; total allocated: 0 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection leased: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 10; total allocated: 0 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Connection allocated: CPoolProxy{http-outgoing-0 [ACTIVE]}
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62153<->127.0.0.1:9200[ACTIVE][r:]: Set attribute http.nio.exchange-handler
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62153<->127.0.0.1:9200[ACTIVE][rw:]: Event set [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62153<->127.0.0.1:9200[ACTIVE][rw:]: Set timeout 0
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE]: Connected
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62153<->127.0.0.1:9200[ACTIVE][rw:]: Set attribute http.nio.http-exchange-state
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Start connection routing
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] route completed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Connection route established
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Attempt 1 to execute request
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Target auth state: UNCHALLENGED
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Proxy auth state: UNCHALLENGED
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62153<->127.0.0.1:9200[ACTIVE][rw:]: Set timeout 30000
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> POST /_bulk?timeout=1m HTTP/1.1
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Content-Length: 120
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Content-Type: application/json
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Host: localhost:9200
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Connection: Keep-Alive
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> User-Agent: Apache-HttpAsyncClient/4.1.4 (Java/1.8.0_311)
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62153<->127.0.0.1:9200[ACTIVE][rw:]: Event set [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] Output ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] produce content
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Request completed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] [content length: 120; pos: 120; completed: true]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62153<->127.0.0.1:9200[ACTIVE][rw:w]: 313 bytes written
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "POST /_bulk?timeout=1m HTTP/1.1[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Content-Length: 120[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Content-Type: application/json[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Host: localhost:9200[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "User-Agent: Apache-HttpAsyncClient/4.1.4 (Java/1.8.0_311)[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"delete":{"_index":"a1","_id":"1001"}}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"delete":{"_index":"a2","_id":"1002"}}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"delete":{"_index":"a3","_id":"1003"}}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] Request ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62153<->127.0.0.1:9200[ACTIVE][r:w]: Event cleared [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62153<->127.0.0.1:9200[ACTIVE][r:r]: 663 bytes read
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "HTTP/1.1 200 OK[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "content-type: application/json; charset=UTF-8[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "content-length: 576[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "{"took":13,"errors":false,"items":[{"delete":{"_index":"a1","_type":"_doc","_id":"1001","_version":31,"result":"deleted","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":30,"_primary_term":1,"status":200}},{"delete":{"_index":"a2","_type":"_doc","_id":"1002","_version":31,"result":"deleted","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":30,"_primary_term":1,"status":200}},{"delete":{"_index":"a3","_type":"_doc","_id":"1003","_version":31,"result":"deleted","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":30,"_primary_term":1,"status":200}}]}"
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << HTTP/1.1 200 OK
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << content-type: application/json; charset=UTF-8
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << content-length: 576
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE(576)] Response received
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Response received HTTP/1.1 200 OK
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE(576)] Input ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Consume content
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Connection can be kept alive indefinitely
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Response processed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] releasing connection
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62153<->127.0.0.1:9200[ACTIVE][r:r]: Remove attribute http.nio.exchange-handler
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Releasing connection: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 10; total allocated: 1 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection [id: http-outgoing-0][route: {}->http://localhost:9200] can be kept alive indefinitely
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62153<->127.0.0.1:9200[ACTIVE][r:r]: Set timeout 0
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection released: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 1; route allocated: 1 of 10; total allocated: 1 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] [content length: 576; pos: 576; completed: true]
+DEBUG main org.elasticsearch.client.RestClient - request [POST http://localhost:9200/_bulk?timeout=1m] returned [HTTP/1.1 200 OK]
+DEBUG main org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] start execution
+DEBUG main org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: default
+DEBUG main org.apache.http.client.protocol.RequestAuthCache - Re-using cached 'basic' auth scheme for http://localhost:9200
+DEBUG main org.apache.http.client.protocol.RequestAuthCache - No credentials for preemptive authentication
+DEBUG main org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Request connection for {}->http://localhost:9200
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection request: [route: {}->http://localhost:9200][total kept alive: 0; route allocated: 0 of 10; total allocated: 0 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection leased: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 10; total allocated: 0 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Connection allocated: CPoolProxy{http-outgoing-0 [ACTIVE]}
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62189<->127.0.0.1:9200[ACTIVE][r:]: Set attribute http.nio.exchange-handler
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62189<->127.0.0.1:9200[ACTIVE][rw:]: Event set [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62189<->127.0.0.1:9200[ACTIVE][rw:]: Set timeout 0
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE]: Connected
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62189<->127.0.0.1:9200[ACTIVE][rw:]: Set attribute http.nio.http-exchange-state
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Start connection routing
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] route completed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Connection route established
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Attempt 1 to execute request
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Target auth state: UNCHALLENGED
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Proxy auth state: UNCHALLENGED
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62189<->127.0.0.1:9200[ACTIVE][rw:]: Set timeout 30000
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> GET /a1/_doc/1001 HTTP/1.1
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Content-Length: 0
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Host: localhost:9200
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Connection: Keep-Alive
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> User-Agent: Apache-HttpAsyncClient/4.1.4 (Java/1.8.0_311)
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62189<->127.0.0.1:9200[ACTIVE][rw:]: Event set [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Request completed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62189<->127.0.0.1:9200[ACTIVE][rw:w]: 154 bytes written
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "GET /a1/_doc/1001 HTTP/1.1[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Content-Length: 0[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Host: localhost:9200[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "User-Agent: Apache-HttpAsyncClient/4.1.4 (Java/1.8.0_311)[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] Request ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62189<->127.0.0.1:9200[ACTIVE][r:w]: Event cleared [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62189<->127.0.0.1:9200[ACTIVE][r:r]: 150 bytes read
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "HTTP/1.1 404 Not Found[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "content-type: application/json; charset=UTF-8[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "content-length: 57[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "{"_index":"a1","_type":"_doc","_id":"1001","found":false}"
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << HTTP/1.1 404 Not Found
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << content-type: application/json; charset=UTF-8
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << content-length: 57
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE(57)] Response received
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Response received HTTP/1.1 404 Not Found
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE(57)] Input ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Consume content
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Connection can be kept alive indefinitely
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Response processed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] releasing connection
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62189<->127.0.0.1:9200[ACTIVE][r:r]: Remove attribute http.nio.exchange-handler
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Releasing connection: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 10; total allocated: 1 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection [id: http-outgoing-0][route: {}->http://localhost:9200] can be kept alive indefinitely
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62189<->127.0.0.1:9200[ACTIVE][r:r]: Set timeout 0
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection released: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 1; route allocated: 1 of 10; total allocated: 1 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] [content length: 57; pos: 57; completed: true]
+DEBUG main org.elasticsearch.client.RestClient - request [GET http://localhost:9200/a1/_doc/1001] returned [HTTP/1.1 404 Not Found]
+DEBUG main org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] start execution
+DEBUG main org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: default
+DEBUG main org.apache.http.client.protocol.RequestAuthCache - Re-using cached 'basic' auth scheme for http://localhost:9200
+DEBUG main org.apache.http.client.protocol.RequestAuthCache - No credentials for preemptive authentication
+DEBUG main org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Request connection for {}->http://localhost:9200
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection request: [route: {}->http://localhost:9200][total kept alive: 0; route allocated: 0 of 10; total allocated: 0 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection leased: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 10; total allocated: 0 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Connection allocated: CPoolProxy{http-outgoing-0 [ACTIVE]}
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62346<->127.0.0.1:9200[ACTIVE][r:]: Set attribute http.nio.exchange-handler
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62346<->127.0.0.1:9200[ACTIVE][rw:]: Event set [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62346<->127.0.0.1:9200[ACTIVE][rw:]: Set timeout 0
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE]: Connected
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62346<->127.0.0.1:9200[ACTIVE][rw:]: Set attribute http.nio.http-exchange-state
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Start connection routing
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] route completed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Connection route established
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Attempt 1 to execute request
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Target auth state: UNCHALLENGED
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Proxy auth state: UNCHALLENGED
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62346<->127.0.0.1:9200[ACTIVE][rw:]: Set timeout 30000
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> POST /_bulk?timeout=1m HTTP/1.1
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Content-Length: 346
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Content-Type: application/json
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Host: localhost:9200
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Connection: Keep-Alive
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> User-Agent: Apache-HttpAsyncClient/4.1.4 (Java/1.8.0_311)
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62346<->127.0.0.1:9200[ACTIVE][rw:]: Event set [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] Output ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] produce content
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Request completed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] [content length: 346; pos: 346; completed: true]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62346<->127.0.0.1:9200[ACTIVE][rw:w]: 539 bytes written
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "POST /_bulk?timeout=1m HTTP/1.1[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Content-Length: 346[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Content-Type: application/json[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Host: localhost:9200[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "User-Agent: Apache-HttpAsyncClient/4.1.4 (Java/1.8.0_311)[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"index":{"_index":"a1","_id":"1001"}}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"name":"{\"animeName\":\"[0xffffffe5][0xffffffbd][0xffffffb1][0xffffffe5][0xffffffae][0xffffff85]\",\"time\":\"2022\",\"characters\":8}"}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"index":{"_index":"a2","_id":"1002"}}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"name":"{\"animeName\":\"[0xffffffe9][0xffffffa3][0xffffff9f][0xffffffe9][0xffffff94][0xffffff88][0xffffffe6][0xffffff9c][0xffffffab][0xffffffe4][0xffffffb8][0xffffff96][0xffffffe5][0xffffffbd][0xffffff95]\",\"time\":\"2022\",\"characters\":4}"}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"index":{"_index":"a3","_id":"1003"}}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "{"name":"{\"animeName\":\"lycores\",\"time\":\"2022\",\"characters\":4}"}[\n]"
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] Request ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62346<->127.0.0.1:9200[ACTIVE][r:w]: Event cleared [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62346<->127.0.0.1:9200[ACTIVE][r:r]: 657 bytes read
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "HTTP/1.1 200 OK[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "content-type: application/json; charset=UTF-8[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "content-length: 570[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "{"took":11,"errors":false,"items":[{"index":{"_index":"a1","_type":"_doc","_id":"1001","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":31,"_primary_term":1,"status":201}},{"index":{"_index":"a2","_type":"_doc","_id":"1002","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":31,"_primary_term":1,"status":201}},{"index":{"_index":"a3","_type":"_doc","_id":"1003","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":31,"_primary_term":1,"status":201}}]}"
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << HTTP/1.1 200 OK
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << content-type: application/json; charset=UTF-8
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << content-length: 570
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE(570)] Response received
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Response received HTTP/1.1 200 OK
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE(570)] Input ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Consume content
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Connection can be kept alive indefinitely
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Response processed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] releasing connection
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62346<->127.0.0.1:9200[ACTIVE][r:r]: Remove attribute http.nio.exchange-handler
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Releasing connection: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 10; total allocated: 1 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection [id: http-outgoing-0][route: {}->http://localhost:9200] can be kept alive indefinitely
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62346<->127.0.0.1:9200[ACTIVE][r:r]: Set timeout 0
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection released: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 1; route allocated: 1 of 10; total allocated: 1 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] [content length: 570; pos: 570; completed: true]
+DEBUG main org.elasticsearch.client.RestClient - request [POST http://localhost:9200/_bulk?timeout=1m] returned [HTTP/1.1 200 OK]
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection manager is shutting down
+DEBUG main org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62346<->127.0.0.1:9200[ACTIVE][r:r]: Close
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [CLOSED]: Disconnected
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection manager shut down
+DEBUG main org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] start execution
+DEBUG main org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: default
+DEBUG main org.apache.http.client.protocol.RequestAuthCache - Re-using cached 'basic' auth scheme for http://localhost:9200
+DEBUG main org.apache.http.client.protocol.RequestAuthCache - No credentials for preemptive authentication
+DEBUG main org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Request connection for {}->http://localhost:9200
+DEBUG main org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection request: [route: {}->http://localhost:9200][total kept alive: 0; route allocated: 0 of 10; total allocated: 0 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection leased: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 10; total allocated: 0 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Connection allocated: CPoolProxy{http-outgoing-0 [ACTIVE]}
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62382<->127.0.0.1:9200[ACTIVE][r:]: Set attribute http.nio.exchange-handler
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62382<->127.0.0.1:9200[ACTIVE][rw:]: Event set [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62382<->127.0.0.1:9200[ACTIVE][rw:]: Set timeout 0
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE]: Connected
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62382<->127.0.0.1:9200[ACTIVE][rw:]: Set attribute http.nio.http-exchange-state
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Start connection routing
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] route completed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Connection route established
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Attempt 1 to execute request
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Target auth state: UNCHALLENGED
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Proxy auth state: UNCHALLENGED
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62382<->127.0.0.1:9200[ACTIVE][rw:]: Set timeout 30000
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> GET /a1/_doc/1001 HTTP/1.1
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Content-Length: 0
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Host: localhost:9200
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> Connection: Keep-Alive
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 >> User-Agent: Apache-HttpAsyncClient/4.1.4 (Java/1.8.0_311)
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62382<->127.0.0.1:9200[ACTIVE][rw:]: Event set [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Request completed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62382<->127.0.0.1:9200[ACTIVE][rw:w]: 154 bytes written
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "GET /a1/_doc/1001 HTTP/1.1[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Content-Length: 0[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Host: localhost:9200[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "User-Agent: Apache-HttpAsyncClient/4.1.4 (Java/1.8.0_311)[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 >> "[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE] Request ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62382<->127.0.0.1:9200[ACTIVE][r:w]: Event cleared [w]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62382<->127.0.0.1:9200[ACTIVE][r:r]: 270 bytes read
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "HTTP/1.1 200 OK[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "content-type: application/json; charset=UTF-8[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "content-length: 183[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "[\r][\n]"
+DEBUG I/O dispatcher 1 org.apache.http.wire - http-outgoing-0 << "{"_index":"a1","_type":"_doc","_id":"1001","_version":1,"_seq_no":31,"_primary_term":1,"found":true,"_source":{"name":"{\"animeName\":\"[0xffffffe5][0xffffffbd][0xffffffb1][0xffffffe5][0xffffffae][0xffffff85]\",\"time\":\"2022\",\"characters\":8}"}}"
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << HTTP/1.1 200 OK
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << content-type: application/json; charset=UTF-8
+DEBUG I/O dispatcher 1 org.apache.http.headers - http-outgoing-0 << content-length: 183
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE(183)] Response received
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Response received HTTP/1.1 200 OK
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalIODispatch - http-outgoing-0 [ACTIVE(183)] Input ready
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Consume content
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] Connection can be kept alive indefinitely
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.MainClientExec - [exchange: 1] Response processed
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.client.InternalHttpAsyncClient - [exchange: 1] releasing connection
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionImpl - http-outgoing-0 127.0.0.1:62382<->127.0.0.1:9200[ACTIVE][r:r]: Remove attribute http.nio.exchange-handler
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Releasing connection: [id: http-outgoing-0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 10; total allocated: 1 of 30]
+DEBUG I/O dispatcher 1 org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager - Connection [id: http-outgoing-0][route: {}->http://localhost:9200] can be kept alive indefinitely
