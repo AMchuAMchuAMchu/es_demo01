@@ -32,6 +32,7 @@ import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHits;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
+import org.elasticsearch.search.sort.SortOrder;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -54,6 +55,57 @@ public class ESConnectTest01 {
 
 
     @Test
+    public void test16() throws IOException {
+
+        SearchRequest searchRequest = new SearchRequest();
+
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+
+        searchSourceBuilder.query(QueryBuilders.matchAllQuery());
+
+        searchSourceBuilder.sort("characters", SortOrder.DESC);
+
+        searchRequest.source(searchSourceBuilder);
+
+        SearchResponse search = rHLC01.search(searchRequest, RequestOptions.DEFAULT);
+
+        SearchHits hits = search.getHits();
+
+        hits.forEach(System.out::println);
+
+
+    }
+
+    @Test
+    public void test15() throws IOException {
+
+        SearchRequest searchRequest = new SearchRequest();
+
+        searchRequest.indices("anime");
+
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+
+        searchSourceBuilder.query(QueryBuilders.matchAllQuery());
+
+        searchSourceBuilder.from(0);
+
+        searchSourceBuilder.size(2);
+
+        searchRequest.source(searchSourceBuilder);
+
+        SearchResponse search = rHLC01.search(searchRequest, RequestOptions.DEFAULT);
+
+        SearchHits hits = search.getHits();
+
+        hits.forEach(System.out::println);
+
+
+
+
+    }
+
+
+    @Test
     public void test14() throws IOException {
 
         SearchRequest searchRequest = new SearchRequest();
@@ -62,13 +114,15 @@ public class ESConnectTest01 {
 
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
 
-        searchSourceBuilder.query(QueryBuilders.termQuery("time","2022"));
+        searchSourceBuilder.query(QueryBuilders.termQuery("characters",8));
 
         searchRequest.source(searchSourceBuilder);
 
         SearchResponse search = rHLC01.search(searchRequest, RequestOptions.DEFAULT);
 
         SearchHits hits = search.getHits();
+
+        System.out.println(hits.getTotalHits());
 
         hits.forEach(System.out::println);
 
@@ -93,11 +147,6 @@ public class ESConnectTest01 {
         SearchHits hits = search.getHits();
 
         hits.forEach(System.out::println);
-
-
-
-
-
 
     }
 
@@ -126,14 +175,14 @@ public class ESConnectTest01 {
 
 
         Anime01 _anime01 = new Anime01("影宅", "2020", 8);
-        Anime01 _anime02 = new Anime01("食锈末世录", "2022", 4);
+        Anime01 _anime02 = new Anime01("刀剑神域", "2012", 3);
         Anime01 _anime03 = new Anime01("lycores", "2022", 4);
 
         ObjectMapper objectMapper = new ObjectMapper();
 
         String anime01 = objectMapper.writeValueAsString(_anime01);
-        String anime02 = objectMapper.writeValueAsString(_anime01);
-        String anime03 = objectMapper.writeValueAsString(_anime01);
+        String anime02 = objectMapper.writeValueAsString(_anime02);
+        String anime03 = objectMapper.writeValueAsString(_anime03);
 
         BulkRequest bulkRequest = new BulkRequest();
 
