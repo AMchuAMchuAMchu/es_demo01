@@ -66,7 +66,7 @@ public class ESConnectTest01 {
 
         BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
 
-        boolQueryBuilder.must(QueryBuilders.matchQuery("animeName","刀剑神域"));
+        boolQueryBuilder.must(QueryBuilders.matchQuery("name","刀剑神域"));//匹配的时候只需要填写匹配的一部分即可^_^
 
         searchSourceBuilder.query(boolQueryBuilder);
 
