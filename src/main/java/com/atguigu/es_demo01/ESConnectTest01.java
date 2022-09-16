@@ -28,6 +28,7 @@ import org.elasticsearch.client.indices.CreateIndexResponse;
 import org.elasticsearch.client.indices.GetIndexRequest;
 import org.elasticsearch.client.indices.GetIndexResponse;
 import org.elasticsearch.common.xcontent.XContentType;
+import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHits;
@@ -52,6 +53,61 @@ public class ESConnectTest01 {
 
     public static RestHighLevelClient rHLC01 = new RestHighLevelClient(RestClient.builder(new
             HttpHost("localhost", 9200, "http")));
+
+
+    @Test
+    public void test18() throws IOException {
+
+        SearchRequest searchRequest = new SearchRequest();
+
+        searchRequest.indices("anime");
+
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+
+        BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
+
+        boolQueryBuilder.must(QueryBuilders.matchQuery("animeName","刀剑神域"));
+
+        searchSourceBuilder.query(boolQueryBuilder);
+
+        searchRequest.source(searchSourceBuilder);
+
+        SearchResponse search = rHLC01.search(searchRequest, RequestOptions.DEFAULT);
+
+        SearchHits hits = search.getHits();
+
+        hits.forEach(hit->{
+            System.out.println(hit.getSourceAsString());
+        });
+    }
+
+    @Test
+    public void test17() throws IOException {
+
+        SearchRequest searchRequest = new SearchRequest();
+
+        searchRequest.indices("anime");
+
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+
+        searchSourceBuilder.query(QueryBuilders.matchAllQuery());
+
+        String [] excludes = {};
+        String [] includes = {"animeName","time"};
+
+
+        searchSourceBuilder.fetchSource(includes,excludes);
+
+        SearchResponse search = rHLC01.search(searchRequest, RequestOptions.DEFAULT);
+
+        SearchHits hits = search.getHits();
+
+        hits.forEach(hit->{
+            System.out.println(hit.getSourceAsString());
+        });
+
+
+    }
 
 
     @Test
@@ -186,11 +242,14 @@ public class ESConnectTest01 {
 
         BulkRequest bulkRequest = new BulkRequest();
 
-        bulkRequest.add(new IndexRequest().index("anime").id("1001").source(XContentType.JSON, "name", anime01));
+        bulkRequest.add(new IndexRequest().index("anime").id("1001").source(XContentType.JSON, "name",
+                anime01));
 
-        bulkRequest.add(new IndexRequest().index("anime").id("1002").source(XContentType.JSON, "name", anime02));
+        bulkRequest.add(new IndexRequest().index("anime").id("1002").source(XContentType.JSON, "name",
+                anime02));
 
-        bulkRequest.add(new IndexRequest().index("anime").id("1003").source(XContentType.JSON, "name", anime03));
+        bulkRequest.add(new IndexRequest().index("anime").id("1003").source(XContentType.JSON, "name",
+                anime03));
 
         BulkResponse bulk = rHLC01.bulk(bulkRequest, RequestOptions.DEFAULT);
 
