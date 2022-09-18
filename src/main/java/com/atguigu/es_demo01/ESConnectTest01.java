@@ -28,20 +28,26 @@ import org.elasticsearch.client.indices.CreateIndexRequest;
 import org.elasticsearch.client.indices.CreateIndexResponse;
 import org.elasticsearch.client.indices.GetIndexRequest;
 import org.elasticsearch.client.indices.GetIndexResponse;
+import org.elasticsearch.common.unit.Fuzziness;
 import org.elasticsearch.common.xcontent.XContentType;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.index.query.RangeQueryBuilder;
+import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
+import org.elasticsearch.search.aggregations.AggregationBuilder;
+import org.elasticsearch.search.aggregations.AggregationBuilders;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
+import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
 import org.elasticsearch.search.sort.SortOrder;
 import org.junit.Test;
 
+import javax.crypto.SecretKey;
+import javax.xml.transform.Source;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @Description: TODO
@@ -55,6 +61,82 @@ public class ESConnectTest01 {
 
     public static RestHighLevelClient rHLC01 = new RestHighLevelClient(RestClient.builder(new
             HttpHost("localhost", 9200, "http")));
+
+
+
+    @Test
+    public void test24() throws IOException {
+
+        SearchRequest searchRequest = new SearchRequest();
+
+        searchRequest.indices("anime");
+
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+
+        searchSourceBuilder.aggregation(AggregationBuilders.min("minTime").field("_source.time"));
+
+        searchRequest.source(searchSourceBuilder);
+
+        SearchResponse response = rHLC01.search(searchRequest, RequestOptions.DEFAULT);
+
+        SearchHits hits = response.getHits();
+
+        hits.forEach(System.out::println);
+
+    }
+
+    @Test
+    public void test23() throws IOException {
+
+        SearchRequest searchRequest = new SearchRequest();
+
+        searchRequest.indices("anime");
+
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+
+        searchSourceBuilder.query(QueryBuilders.termQuery("time",2022));
+
+        HighlightBuilder highlightBuilder = new HighlightBuilder();
+
+        highlightBuilder.preTags("<h1 color='red'>");
+        highlightBuilder.postTags("</h1>");
+        highlightBuilder.field("time");
+
+        searchSourceBuilder.highlighter(highlightBuilder);
+
+        searchRequest.source(searchSourceBuilder);
+
+        SearchResponse response = rHLC01.search(searchRequest, RequestOptions.DEFAULT);
+
+        SearchHits hits = response.getHits();
+
+        hits.forEach(System.out::println);
+
+
+    }
+
+    @Test
+    public void test22() throws IOException {
+
+        SearchRequest searchRequest = new SearchRequest();
+
+        searchRequest.indices("anime");
+
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+
+        searchSourceBuilder.query(QueryBuilders.fuzzyQuery("time",2020).fuzziness(Fuzziness.TWO));
+
+        searchRequest.source(searchSourceBuilder);
+
+        SearchResponse response = rHLC01.search(searchRequest, RequestOptions.DEFAULT);
+
+        SearchHits hits = response.getHits();
+
+        hits.forEach(System.out::println);
+
+
+    }
+
 
     @Test
     public void test21() throws IOException {
@@ -126,6 +208,7 @@ public class ESConnectTest01 {
 
         BulkRequest bulkRequest = new BulkRequest();
 
+        //
         bulkRequest.add(new IndexRequest().index("anime").id("1001").source(anime01,XContentType.JSON));
 
         bulkRequest.add(new IndexRequest().index("anime").id("1002").source(anime02,XContentType.JSON));
