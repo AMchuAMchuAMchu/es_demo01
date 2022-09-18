@@ -4,6 +4,7 @@ import com.atguigu.es_demo01.bean.Anime01;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 import lombok.SneakyThrows;
 import org.apache.http.HttpHost;
 import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
@@ -31,6 +32,7 @@ import org.elasticsearch.common.xcontent.XContentType;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.RangeQueryBuilder;
 import org.elasticsearch.search.SearchHits;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.elasticsearch.search.sort.SortOrder;
@@ -54,6 +56,96 @@ public class ESConnectTest01 {
     public static RestHighLevelClient rHLC01 = new RestHighLevelClient(RestClient.builder(new
             HttpHost("localhost", 9200, "http")));
 
+    @Test
+    public void test21() throws IOException {
+
+        SearchRequest searchRequest = new SearchRequest();
+        searchRequest.indices("anime");
+
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+
+        RangeQueryBuilder time = QueryBuilders.rangeQuery("time");
+
+        time.gte(2016);
+
+        time.lte(2020);
+
+        searchSourceBuilder.query(time);
+
+        searchRequest.source(searchSourceBuilder);
+
+        SearchResponse search = rHLC01.search(searchRequest, RequestOptions.DEFAULT);
+
+        SearchHits hits = search.getHits();
+
+        hits.forEach(System.out::println);
+
+
+    }
+
+
+    @Test
+    public void test20() throws IOException {
+
+        SearchRequest searchRequest = new SearchRequest();
+
+        searchRequest.indices("anime");
+
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+
+        searchSourceBuilder.query(QueryBuilders.matchAllQuery());
+
+        searchRequest.source(searchSourceBuilder);
+
+        SearchResponse response = rHLC01.search(searchRequest, RequestOptions.DEFAULT);
+
+        SearchHits hits = response.getHits();
+
+        hits.forEach(System.out::println);
+
+    }
+
+
+    @Test
+    public void test19() throws IOException {
+
+
+        Anime01 _anime01 = new Anime01("影宅", 2020, 8);
+        Anime01 _anime02 = new Anime01("刀剑神域", 2012, 3);
+        Anime01 _anime03 = new Anime01("lycores", 2022, 4);
+        Anime01 _anime04 = new Anime01("未闻花名", 2011, 5);
+        Anime01 _anime05 = new Anime01("你的名字", 2016, 2);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        String anime01 = objectMapper.writeValueAsString(_anime01);
+        String anime02 = objectMapper.writeValueAsString(_anime02);
+        String anime03 = objectMapper.writeValueAsString(_anime03);
+        String anime04 = objectMapper.writeValueAsString(_anime04);
+        String anime05 = objectMapper.writeValueAsString(_anime05);
+
+        BulkRequest bulkRequest = new BulkRequest();
+
+        bulkRequest.add(new IndexRequest().index("anime").id("1001").source(anime01,XContentType.JSON));
+
+        bulkRequest.add(new IndexRequest().index("anime").id("1002").source(anime02,XContentType.JSON));
+
+        bulkRequest.add(new IndexRequest().index("anime").id("1003").source( anime03,XContentType.JSON));
+        bulkRequest.add(new IndexRequest().index("anime").id("1004").source( anime04,XContentType.JSON));
+        bulkRequest.add(new IndexRequest().index("anime").id("1005").source( anime05,XContentType.JSON));
+
+        BulkResponse bulk = rHLC01.bulk(bulkRequest, RequestOptions.DEFAULT);
+
+        System.out.println(bulk.status());
+
+        System.out.println("getTook" + bulk.getTook());
+
+        BulkRequest bulkRequest1 = new BulkRequest();
+
+        rHLC01.close();
+
+    }
+
 
     @Test
     public void test18() throws IOException {
@@ -66,7 +158,7 @@ public class ESConnectTest01 {
 
         BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
 
-        boolQueryBuilder.must(QueryBuilders.matchQuery("name","刀剑神域"));//匹配的时候只需要填写匹配的一部分即可^_^
+        boolQueryBuilder.must(QueryBuilders.matchQuery("animeName", "刀剑神域"));//匹配的时候只需要填写匹配的一部分即可^_^
 
         searchSourceBuilder.query(boolQueryBuilder);
 
@@ -76,7 +168,7 @@ public class ESConnectTest01 {
 
         SearchHits hits = search.getHits();
 
-        hits.forEach(hit->{
+        hits.forEach(hit -> {
             System.out.println(hit.getSourceAsString());
         });
     }
@@ -92,17 +184,17 @@ public class ESConnectTest01 {
 
         searchSourceBuilder.query(QueryBuilders.matchAllQuery());
 
-        String [] excludes = {};
-        String [] includes = {"animeName","time"};
+        String[] excludes = {};
+        String[] includes = {"animeName", "time"};
 
 
-        searchSourceBuilder.fetchSource(includes,excludes);
+        searchSourceBuilder.fetchSource(includes, excludes);
 
         SearchResponse search = rHLC01.search(searchRequest, RequestOptions.DEFAULT);
 
         SearchHits hits = search.getHits();
 
-        hits.forEach(hit->{
+        hits.forEach(hit -> {
             System.out.println(hit.getSourceAsString());
         });
 
@@ -156,8 +248,6 @@ public class ESConnectTest01 {
         hits.forEach(System.out::println);
 
 
-
-
     }
 
 
@@ -170,7 +260,7 @@ public class ESConnectTest01 {
 
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
 
-        searchSourceBuilder.query(QueryBuilders.termQuery("characters",8));
+        searchSourceBuilder.query(QueryBuilders.termQuery("characters", 8));
 
         searchRequest.source(searchSourceBuilder);
 
@@ -207,7 +297,6 @@ public class ESConnectTest01 {
     }
 
 
-
     @Test
     public void test12() throws IOException {
 
@@ -230,9 +319,9 @@ public class ESConnectTest01 {
     public void test11() throws IOException {
 
 
-        Anime01 _anime01 = new Anime01("影宅", "2020", 8);
-        Anime01 _anime02 = new Anime01("刀剑神域", "2012", 3);
-        Anime01 _anime03 = new Anime01("lycores", "2022", 4);
+        Anime01 _anime01 = new Anime01("影宅", 2020, 8);
+        Anime01 _anime02 = new Anime01("刀剑神域", 2012, 3);
+        Anime01 _anime03 = new Anime01("lycores", 2022, 4);
 
         ObjectMapper objectMapper = new ObjectMapper();
 
@@ -340,7 +429,7 @@ public class ESConnectTest01 {
 
         anime01.index("anime01").id("1001");
 
-        Anime01 anime011 = new Anime01("影宅", "2022", 4);
+        Anime01 anime011 = new Anime01("影宅", 2022, 4);
 
         ObjectMapper objectMapper = new ObjectMapper();
 

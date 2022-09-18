@@ -14,17 +14,28 @@ public class Anime01 implements Serializable {
 
     private String animeName;
 
-    private String time;
+    private Integer time;
 
     private Integer characters;
 
     @Override
-    public String toString() {
-        return "Anime01{" +
-                "animeName='" + animeName + '\'' +
-                ", time='" + time + '\'' +
-                ", characters=" + characters +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Anime01 anime01 = (Anime01) o;
+
+        if (animeName != null ? !animeName.equals(anime01.animeName) : anime01.animeName != null) return false;
+        if (time != null ? !time.equals(anime01.time) : anime01.time != null) return false;
+        return characters != null ? characters.equals(anime01.characters) : anime01.characters == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = animeName != null ? animeName.hashCode() : 0;
+        result = 31 * result + (time != null ? time.hashCode() : 0);
+        result = 31 * result + (characters != null ? characters.hashCode() : 0);
+        return result;
     }
 
     public String getAnimeName() {
@@ -35,11 +46,11 @@ public class Anime01 implements Serializable {
         this.animeName = animeName;
     }
 
-    public String getTime() {
+    public Integer getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(Integer time) {
         this.time = time;
     }
 
@@ -51,7 +62,7 @@ public class Anime01 implements Serializable {
         this.characters = characters;
     }
 
-    public Anime01(String animeName, String time, Integer characters) {
+    public Anime01(String animeName, Integer time, Integer characters) {
         this.animeName = animeName;
         this.time = time;
         this.characters = characters;
