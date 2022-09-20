@@ -67,6 +67,8 @@ public class ESConnectTest01 {
     @Test
     public void test24() throws IOException {
 
+
+
         SearchRequest searchRequest = new SearchRequest();
 
         searchRequest.indices("anime");
