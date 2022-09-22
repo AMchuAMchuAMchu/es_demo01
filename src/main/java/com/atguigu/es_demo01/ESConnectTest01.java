@@ -64,6 +64,30 @@ public class ESConnectTest01 {
 
 
 
+
+
+
+    @Test
+    public void test25() throws IOException {
+
+        SearchRequest searchRequest = new SearchRequest().indices("anime");
+
+
+        SearchSourceBuilder aggregation = new SearchSourceBuilder().aggregation(AggregationBuilders.terms("time_group"
+        ).field("_source.time"));
+
+        searchRequest.source(aggregation);
+
+        SearchResponse search = rHLC01.search(searchRequest, RequestOptions.DEFAULT);
+
+        SearchHits hits = search.getHits();
+
+        hits.forEach(System.out::println);
+
+
+    }
+
+
     @Test
     public void test24() throws IOException {
 
@@ -193,8 +217,8 @@ public class ESConnectTest01 {
 
 
         Anime01 _anime01 = new Anime01("影宅", 2020, 8);
-        Anime01 _anime02 = new Anime01("刀剑神域", 2012, 3);
-        Anime01 _anime03 = new Anime01("lycores", 2022, 4);
+        Anime01 _anime02 = new Anime01("刀剑神域", 2012, 5);
+        Anime01 _anime03 = new Anime01("lycores", 2022, 5);
         Anime01 _anime04 = new Anime01("未闻花名", 2011, 5);
         Anime01 _anime05 = new Anime01("你的名字", 2016, 2);
 
